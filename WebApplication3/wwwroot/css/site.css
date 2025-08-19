@@ -1,0 +1,117 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.header {
+    width: 100%;
+    height: 56px;
+    background: #415E72;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight:bold;
+    justify-content: space-between;
+}
+.contenedor {
+    display: flex;
+    min-height: calc(150vh - 56px);
+    background: #f6f8fa;
+}
+
+.contenedor1 {
+    width: 270px;
+    background: #94B4C1;
+    padding-top: 16px;
+    min-height: calc(100vh - 56px);
+}
+
+    .contenedor1 ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contenedor1 li {
+        margin-bottom: 8px;
+    }
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.08rem;
+    font-weight:500;
+    padding: 10px 20px;
+    border-left: 4px solid;
+}
+.tabla-tareas {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .tabla th, .tabla td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .tabla th {
+        background-color: #333;
+        color: white;
+    }
+
+    .tabla tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+.btn-verde {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-rojo {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-gris {
+    background-color: #aaa;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+}
+

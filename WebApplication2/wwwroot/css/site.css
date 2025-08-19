@@ -1,0 +1,109 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+.header {
+    width: 100%;
+    height: 56px;
+    background: #29ABE2;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
+.toggle {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.contenedor {
+    display: flex;
+    min-height: calc(100vh - 56px);
+    background: #f6f8fa;
+}
+
+.contenedor1 {
+    width: 240px;
+    background: #242d36;
+    padding-top: 16px;
+    min-height: calc(100vh - 56px);
+}
+
+    .contenedor1 ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contenedor1 li {
+        margin-bottom: 8px;
+    }
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.08rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 20px;
+    border-left: 4px solid transparent;
+    transition: background 0.2s, border 0.2s;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.15rem;
+    display: inline-block;
+}
+
+.content {
+    flex: 1;
+    padding: 30px 40px 0 40px;
+    background: #f6f8fa;
+    min-height: calc(100vh - 56px);
+}
+
+@media (max-width: 900px) {
+    .header, .contenedor, .contenedor1, .mpanel-content {
+        font-size: 95%;
+    }
+
+    .contenedor1 {
+        width: 180px;
+    }
+
+    .content {
+        padding: 24px 10px 0 10px;
+    }
+}

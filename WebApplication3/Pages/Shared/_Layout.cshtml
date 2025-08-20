@@ -10,33 +10,18 @@
 </head>
 <body>
     <div class="header">
-        <span class="logo">BLOCK DE TAREAS</span>
+        BLOCK DE TAREAS
     </div>
     <div class="contenedor">
         <nav class="contenedor1">
             <ul>
-                <li>
-                    <a class="link" asp-page="/Home">
-                        inicio
-                    </a>
-                </li>
-                <li>
-                    <a class="link" asp-page="/Home">
-                        lista de tareas
-                    </a>
-                </li>
-                <li>
-                    <a class="link" asp-page="/Privacy">
-                        lista de tareas finalizadas
-                    </a>
-                </li>
-                <li>
-                    <a class="link" asp-page="/Privacy">
-                        lista de tareas canceladas
-                    </a>
-                </li>
+                <li><a class="link" asp-page="/Home">Inicio</a></li>
+                <li><a class="link" asp-page="/Home">Lista de tareas</a></li>
+                <li><a class="link" asp-page="/Privacy">Tareas finalizadas</a></li>
+                <li><a class="link" asp-page="/Privacy">Tareas canceladas</a></li>
             </ul>
         </nav>
+
         <div class="tabla-tareas">
             <table class="tabla">
                 <thead>
@@ -71,16 +56,12 @@
 
         <main class="content" role="main">
             @RenderBody()
-            
         </main>
-        
     </div>
-    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

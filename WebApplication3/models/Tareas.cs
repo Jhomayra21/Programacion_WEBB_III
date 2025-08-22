@@ -1,6 +1,6 @@
 ﻿namespace WebApplication3.models
 {
-    public class Tareas
+    public class Tarea
     {
         public string idTarea { get; set; }
         public string nombreTarea { get; set; }

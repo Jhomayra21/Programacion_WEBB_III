@@ -123,6 +123,19 @@ body {
     border-radius: 5px;
 }
 
+.btnAgregar {
+    background-color: #8AA624;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+    .btnAgregar:hover {
+        background-color: #8AA624;
+    }
+
 .content {
     padding: 2rem;
 }

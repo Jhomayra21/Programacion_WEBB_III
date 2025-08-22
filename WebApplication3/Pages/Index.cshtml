@@ -1,7 +1,80 @@
 ﻿@page
-@model IndexModel
 @{
-    ViewData["Title"] = "Practica_1";
+    Layout = "_Layout";
+    ViewData["Title"] = "Tareas Asignadas";
+
+    var tareas = new List<dynamic>
+    {
+        new { nombreTarea="Comprar materiales", fechaVencimiento=DateTime.Parse("2025-08-20"), estado="Pendiente" },
+        new { nombreTarea="Enviar informe", fechaVencimiento=DateTime.Parse("2025-08-18"), estado="Finalizada" },
+        new { nombreTarea="Escribir informe semanal", fechaVencimiento=DateTime.Parse("2025-08-25"), estado="En curso" },
+        new { nombreTarea="Planificar menú semanal", fechaVencimiento=DateTime.Parse("2025-08-20"), estado="Pendiente" },
+        new { nombreTarea="Llamar al dentista", fechaVencimiento=DateTime.Parse("2025-08-21"), estado="Pendiente" },
+        new { nombreTarea="Pagar facturas", fechaVencimiento=DateTime.Parse("2025-08-23"), estado="Cancelado" }
+    };
+
+    var tamañoPagina = 3;
+    var pagina = Convert.ToInt32(HttpContext.Request.Query["pagina"].FirstOrDefault() ?? "1");
+    var totalPaginas = (int)Math.Ceiling((double)tareas.Count / tamañoPagina);
+
+    var tareasPagina = tareas.Skip((pagina - 1) * tamañoPagina).Take(tamañoPagina).ToList();
 }
 
+<div class="tabla-tareas">
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Tarea</th>
+                <th>Vencimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tarea in tareasPagina)
+            {
+                <tr>
+                    <td>@tarea.nombreTarea</td>
+                    <td>@tarea.fechaVencimiento.ToShortDateString()</td>
+                    <td>
+                        <span class="badge @(tarea.estado switch {
+                        "Pendiente" => "bg-warning text-dark",
+                        "En curso" => "bg-info",
+                        "Finalizada" => "bg-success",
+                        "Cancelado" => "bg-danger",
+                        _ => "bg-secondary"
+                    })">
+                            @tarea.estado
+                        </span>
+                    </td>
+                    <td>
+                        @if (tarea.estado == "Pendiente")
+                        {
+                            <button class="btn-verde">✔</button>
+                            <button class="btn-rojo">✖</button>
+                        }
+                        else if (tarea.estado == "Finalizada")
+                        {
+                            <button class="btn-gris" disabled>✓</button>
+                        }
+                        else
+                        {
+                            <button class="btn-secondary" disabled>-</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
+<nav>
+    <ul class="pagination justify-content-center">
+        @for (int i = 1; i <= totalPaginas; i++)
+        {
+            <li class="page-item @(i == pagina ? "active" : "")">
+                <a class="page-link" href="?pagina=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>

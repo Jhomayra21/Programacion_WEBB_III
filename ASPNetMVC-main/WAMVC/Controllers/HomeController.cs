@@ -36,4 +36,22 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    // GET: Home/TestClienteValidation
+    public IActionResult TestClienteValidation()
+    {
+        return View(new ClienteModel());
+    }
+
+    // POST: Home/TestClienteValidation
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult TestClienteValidation(ClienteModel clienteModel)
+    {
+        if (ModelState.IsValid)
+        {
+            TempData["SuccessMessage"] = "¡Validación exitosa! Los datos del cliente son válidos.";
+            return RedirectToAction(nameof(TestClienteValidation));
+        }
+        return View(clienteModel);
+    }
 }

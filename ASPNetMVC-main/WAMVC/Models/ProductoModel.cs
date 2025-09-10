@@ -6,9 +6,19 @@ namespace WAMVC.Models
     {
         //No se olviden es la llave primaria de la tabla
         public int Id { get; set; }
+        [Required(ErrorMessage = "El nombre del producto es obligatorio")]
+        [StringLength(100, ErrorMessage = "El nombre no puede tener ma de 100 caracteres")]
         public string Nombre { get; set; }
+
+        [StringLength(500, ErrorMessage = "La descripcion no puede tener mas de 500 caracteres")]
         public string Descripcion { get; set; }
+
+        [Required(ErrorMessage = "El precio del producto es obligatorio")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "El precio debe ser mayor a cero")]
         public decimal Precio { get; set; }
+
+        [Required(ErrorMessage = "El stock es obligatorio.")]
+        [Range(0.01, int.MaxValue, ErrorMessage = "El stock no puede ser negativo")]
         public int Stock { get; set; }
 
         // Propiedad de navegación para la relación con DetallePedido.
